@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const menus = [
-  { name: "About", href: "#about" },
   { name: "Tech", href: "#tech" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
@@ -36,7 +35,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-[#E5E7EB] shadow-sm"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -44,10 +43,10 @@ export default function Navbar() {
         {/* LOGO */}
         <Link
           href="/"
-          className="text-sm font-bold tracking-wide text-[#111827] hover:text-[#2563EB] transition-colors"
+          className="text-sm font-bold tracking-wide text-foreground transition-colors hover:text-foreground/80"
         >
           M Septiawan
-          <span className="text-[#2563EB]">.</span>
+          <span className="text-foreground">.</span>
         </Link>
 
         {/* NAV DESKTOP */}
@@ -56,19 +55,19 @@ export default function Navbar() {
             <a
               key={menu.name}
               href={menu.href}
-              className="relative px-3 py-2 text-sm font-medium text-[#6B7280] transition-colors hover:text-[#111827] group"
+              className="relative px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground group"
             >
               {menu.name}
-              {/* garis bawah animasi */}
-              <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-[#2563EB] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+              {/* Garis bawah animasi (Hitam/Netral) */}
+              <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-foreground scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
             </a>
           ))}
         </nav>
 
-        {/* CTA DESKTOP */}
+        {/* CTA DESKTOP (Hitam Solid) */}
         <a
           href="mailto:mseptiawan017@gmail.com"
-          className="hidden md:inline-flex items-center rounded-xl bg-[#2563EB] px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-700 hover:-translate-y-0.5"
+          className="hidden md:inline-flex items-center rounded-xl bg-foreground px-4 py-2 text-sm font-semibold text-background transition-all duration-200 hover:bg-foreground/90 hover:-translate-y-0.5"
         >
           Hire Me
         </a>
@@ -78,7 +77,7 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#E5E7EB] bg-white text-[#111827]"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors hover:bg-muted"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -90,13 +89,13 @@ export default function Navbar() {
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <nav className="flex flex-col gap-1 border-t border-[#E5E7EB] bg-white px-6 py-4">
+        <nav className="flex flex-col gap-1 border-t border-border bg-background px-6 py-4">
           {menus.map((menu) => (
             <a
               key={menu.name}
               href={menu.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-[#6B7280] transition-colors hover:bg-blue-50 hover:text-[#2563EB]"
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               {menu.name}
             </a>
@@ -104,7 +103,7 @@ export default function Navbar() {
           <a
             href="mailto:mseptiawan017@gmail.com"
             onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center rounded-xl bg-[#2563EB] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+            className="mt-2 inline-flex items-center justify-center rounded-xl bg-foreground px-4 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
           >
             Hire Me
           </a>
