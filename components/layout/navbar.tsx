@@ -15,7 +15,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  /* Deteksi scroll untuk mengubah tampilan navbar */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
@@ -23,7 +22,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Kunci scroll body saat mobile menu terbuka */
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -35,18 +33,17 @@ export default function Navbar() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-black/60 backdrop-blur-xl" // Latar belakang transparan tanpa border
+          : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* LOGO */}
         <Link
           href="/"
-          className="text-sm font-bold tracking-wide text-foreground transition-colors hover:text-foreground/80"
+          className="text-sm font-bold tracking-wide text-white transition-colors hover:text-zinc-300"
         >
           M Septiawan
-          <span className="text-foreground">.</span>
         </Link>
 
         {/* NAV DESKTOP */}
@@ -55,19 +52,19 @@ export default function Navbar() {
             <a
               key={menu.name}
               href={menu.href}
-              className="relative px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground group"
+              className="relative px-3 py-2 text-sm font-medium text-zinc-400 transition-colors hover:text-white group"
             >
               {menu.name}
-              {/* Garis bawah animasi (Hitam/Netral) */}
-              <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-foreground scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+              {/* Garis bawah animasi (Putih/Netral) */}
+              <span className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-white scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
             </a>
           ))}
         </nav>
 
-        {/* CTA DESKTOP (Hitam Solid) */}
+        {/* CTA DESKTOP (Putih Solid) */}
         <a
           href="mailto:mseptiawan017@gmail.com"
-          className="hidden md:inline-flex items-center rounded-xl bg-foreground px-4 py-2 text-sm font-semibold text-background transition-all duration-200 hover:bg-foreground/90 hover:-translate-y-0.5"
+          className="hidden md:inline-flex items-center rounded-xl bg-zinc-100 px-4 py-2 text-sm font-semibold text-black transition-all duration-200 hover:bg-white hover:-translate-y-0.5"
         >
           Hire Me
         </a>
@@ -77,7 +74,7 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-background text-foreground transition-colors hover:bg-muted"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-800 bg-black text-white transition-colors hover:bg-zinc-900"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -89,13 +86,13 @@ export default function Navbar() {
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <nav className="flex flex-col gap-1 border-t border-border bg-background px-6 py-4">
+        <nav className="flex flex-col gap-1 border-t border-zinc-800 bg-black px-6 py-4">
           {menus.map((menu) => (
             <a
               key={menu.name}
               href={menu.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-400 transition-colors hover:bg-zinc-900 hover:text-white"
             >
               {menu.name}
             </a>
@@ -103,7 +100,7 @@ export default function Navbar() {
           <a
             href="mailto:mseptiawan017@gmail.com"
             onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center rounded-xl bg-foreground px-4 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-foreground/90"
+            className="mt-2 inline-flex items-center justify-center rounded-xl bg-zinc-100 px-4 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-white"
           >
             Hire Me
           </a>

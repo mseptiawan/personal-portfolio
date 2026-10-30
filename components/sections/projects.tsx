@@ -1,13 +1,7 @@
-import { CalendarDays, Check, ExternalLink } from "lucide-react";
+import { CalendarDays, Check, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import Container from "../layout/container";
+import { cn } from "@/lib/utils";
 
 const projectsData = [
   {
@@ -22,19 +16,21 @@ const projectsData = [
       "Cetak invoice",
     ],
     link: "https://github.com/mseptiawan/inventaris",
+    className: "md:col-span-2 lg:col-span-2",
   },
   {
     title: "HRIS Zafa Tour",
     date: "Feb 2026 - Jun 2026",
     description:
       "Sistem Informasi Kepegawaian dengan 16 modul untuk PT Zafa Mulia Mandiri.",
-    stack: ["Node.js", "Express.js", "MongoDB", "Redis", "EJS", "Tailwind CSS"],
+    stack: ["Node.js", "Express.js", "MongoDB", "Redis", "EJS"],
     highlights: [
       "Alur persetujuan bertingkat",
       "RBAC untuk 6 role",
-      "Redis session dan deployment Docker",
+      "Redis session & Docker",
     ],
     link: "https://github.com/mseptiawan/website-zafa-tour",
+    className: "md:col-span-1 lg:col-span-1",
   },
   {
     title: "Sistem Insentif PT Changhong",
@@ -48,120 +44,111 @@ const projectsData = [
       "Ranking promotor",
     ],
     link: "https://github.com/mseptiawan/insentif-changhong",
+    className: "md:col-span-1 lg:col-span-1",
   },
   {
     title: "Reservasi Meja Kafe",
     date: "Jul 2026",
-    description: "Sistem reservasi meja kafe berbasis web.",
-    stack: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "Docker"],
+    description: "Sistem reservasi meja kafe berbasis web dengan verifikasi pembayaran.",
+    stack: ["Laravel", "PHP", "MySQL", "Docker"],
     highlights: [
       "Verifikasi pembayaran",
       "Manajemen meja",
       "Dashboard admin",
     ],
     link: "https://github.com/mseptiawan/reservasi-meja-kafe",
+    className: "md:col-span-2 lg:col-span-2",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-muted/30 py-20 sm:py-24">
+    <section id="projects" className="py-20 sm:py-24 bg-black">
       <Container>
         {/* Section Header */}
         <div className="mb-12 max-w-2xl">
-          <Badge variant="secondary" className="mb-4 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          <Badge variant="outline" className="mb-4 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider text-zinc-400 border-zinc-800 bg-zinc-900/50">
             Portofolio
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Proyek Terpilih
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          
+          {/* Deskripsi Mobile (Ringkas) */}
+          <p className="mt-4 text-sm leading-relaxed text-zinc-400 block sm:hidden">
+            Kumpulan aplikasi web yang saya bangun dengan fokus pada penyelesaian masalah nyata.
+          </p>
+
+          {/* Deskripsi Desktop (Lengkap) */}
+          <p className="mt-4 text-base leading-relaxed text-zinc-400 hidden sm:block">
             Kumpulan aplikasi web yang saya bangun dengan fokus pada penyelesaian masalah nyata, efisiensi proses, dan implementasi teknis yang andal.
           </p>
         </div>
 
-        {/* Grid Projects */}
-        <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
+        {/* Bento Grid Projects */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
           {projectsData.map((project) => (
-            <Card
+            <a
               key={project.title}
-              className="group flex flex-col overflow-hidden rounded-xl border border-border/40 bg-background shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-md"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 p-6 sm:p-8 transition-all duration-500 hover:-translate-y-1 hover:border-zinc-700 hover:bg-zinc-900/50",
+                project.className
+              )}
             >
-              <CardHeader className="p-6 pb-4">
-                <div className="mb-3 flex items-center justify-between">
-                  <Badge
-                    variant="outline"
-                    className="flex items-center gap-1.5 rounded-full border-none bg-muted/60 px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
-                  >
-                    <CalendarDays className="size-3.5" aria-hidden="true" />
-                    {project.date}
-                  </Badge>
-                </div>
-                <CardTitle className="text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-foreground/80">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
+              {/* Hover Gradient Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-              <CardContent className="flex flex-1 flex-col p-6 pt-0">
-                {/* Tech Stack */}
-                <div className="mt-2">
-                  <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-foreground/70">
-                    Tech Stack
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.stack.map((technology) => (
-                      <Badge
-                        key={technology}
-                        variant="secondary"
-                        className="rounded-md border-none bg-muted/50 px-2.5 py-1 text-xs font-medium text-foreground transition-colors hover:bg-muted"
-                      >
-                        {technology}
-                      </Badge>
-                    ))}
+              <div className="relative z-10">
+                {/* Header */}
+                <div className="mb-6 flex items-start justify-between gap-4">
+                  <div className="flex flex-col gap-2">
+                    <span className="flex items-center gap-1.5 text-xs font-medium text-zinc-400">
+                      <CalendarDays className="size-3.5" />
+                      {project.date}
+                    </span>
+                    <h3 className="text-xl font-bold tracking-tight text-zinc-100 sm:text-2xl">
+                      {project.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Icon Panah di pojok kanan atas */}
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-400 transition-colors group-hover:bg-zinc-100 group-hover:text-black">
+                    <ArrowUpRight className="size-5" />
                   </div>
                 </div>
 
-                {/* Highlights */}
-                <div className="mt-6 border-t border-border/40 pt-5 flex-1">
-                  <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-foreground/70">
-                    Sorotan Fitur
-                  </h4>
-                  <ul className="space-y-2.5">
-                    {project.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"
-                      >
-                        <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-foreground/10">
-                          <Check
-                            className="size-3 text-foreground"
-                            strokeWidth={3}
-                            aria-hidden="true"
-                          />
-                        </span>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <p className="mb-6 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                  {project.description}
+                </p>
 
-                {/* Tombol Link GitHub */}
-                <div className="mt-6 pt-4 border-t border-border/40">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-foreground/70 transition-colors"
-                  >
-                    Lihat Repositori
-                    <ExternalLink className="size-4" />
-                  </a>
+                {/* Highlights */}
+                <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {project.highlights.map((highlight) => (
+                    <div key={highlight} className="flex items-center gap-2 text-sm text-zinc-300">
+                      <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-zinc-800">
+                        <Check className="size-2.5 text-zinc-100" strokeWidth={3} />
+                      </span>
+                      {highlight}
+                    </div>
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Tech Stack (di bagian bawah) */}
+              <div className="relative z-10 mt-auto flex flex-wrap gap-2 pt-4">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-xs font-medium text-zinc-300 transition-colors group-hover:border-zinc-700"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </a>
           ))}
         </div>
       </Container>

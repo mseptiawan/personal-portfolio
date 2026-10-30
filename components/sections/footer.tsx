@@ -1,8 +1,7 @@
-import Link from "next/link"; // 1. Perbaikan import Link
-import { Mail } from "lucide-react"; // Mail masih ada
+import Link from "next/link";
+import { Mail } from "lucide-react";
 import Container from "../layout/container";
 
-// 2. Membuat komponen SVG pengganti ikon brand yang dihapus
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -36,23 +35,10 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-
 const socialLinks = [
-  {
-    name: "GitHub",
-    href: "https://github.com/mseptiawan",
-    icon: <GithubIcon className="size-4" />, // 3. Gunakan komponen SVG baru
-  },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/in/mseptiawan/",
-    icon: <LinkedinIcon className="size-4" />, // 4. Gunakan komponen SVG baru
-  },
-  {
-    name: "Email",
-    href: "mailto:mseptiawan017@gmail.com",
-    icon: <Mail className="size-4" />,
-  },
+  { name: "GitHub", href: "https://github.com/mseptiawan", icon: <GithubIcon className="size-4" /> },
+  { name: "LinkedIn", href: "https://linkedin.com/in/mseptiawan/", icon: <LinkedinIcon className="size-4" /> },
+  { name: "Email", href: "mailto:mseptiawan017@gmail.com", icon: <Mail className="size-4" /> },
 ];
 
 const navLinks = [
@@ -66,7 +52,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-t border-zinc-800 bg-black">
       <Container>
         <div className="flex flex-col items-center justify-between gap-6 py-10 md:flex-row md:py-12">
           
@@ -74,15 +60,15 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-2 md:items-start">
             <Link
               href="/"
-              className="text-lg font-bold tracking-tight text-foreground transition-colors hover:text-foreground/80"
+              className="text-lg font-bold tracking-tight text-white transition-colors hover:text-zinc-300"
             >
               M. Septiawan
-              <span className="text-foreground">.</span>
+              <span className="text-white">.</span>
             </Link>
-            <p className="text-center text-sm text-muted-foreground md:text-left">
+            <p className="text-center text-sm text-zinc-400 md:text-left">
               Backend/Full-Stack Web Developer
             </p>
-            <p className="mt-2 text-xs text-muted-foreground/70">
+            <p className="mt-2 text-xs text-zinc-600">
               &copy; {currentYear} M. Septiawan. Hak cipta dilindungi.
             </p>
           </div>
@@ -96,7 +82,7 @@ export default function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
                 >
                   {link.name}
                 </a>
@@ -112,7 +98,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-all duration-200 hover:border-foreground/20 hover:bg-muted hover:text-foreground"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-400 transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-800 hover:text-white"
                 >
                   {social.icon}
                 </a>
