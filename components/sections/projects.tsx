@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils";
 const projectsData = [
   {
     title: "HRIS Zafa Tour",
-    date: "Feb 2026 - Jun 2026",
+    date: "Februari 2026 - Juni 2026",
     description:
       "Sistem Informasi Kepegawaian dengan 16 modul untuk mendigitalisasi proses administrasi dan operasional PT Zafa Mulia Mandiri.",
-    stack: ["Node.js", "Express.js", "MongoDB", "Redis", "EJS", "Docker"],
+    stack: ["Express.js", "MongoDB", "Redis", "Docker"],
     highlights: [
       "16 modul sistem terintegrasi",
       "RBAC untuk 6 role",
@@ -24,17 +24,17 @@ const projectsData = [
   },
   {
     title: "Sistem Inventaris Toko XYZ",
-    date: "Jul 2026 - Sep 2026",
+    date: "Juli 2026 - September 2026",
     description:
       "Sistem inventaris berbasis web untuk manajemen stok, transaksi, dan Point of Sale.",
-    stack: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "Alpine.js"],
+    stack: ["Laravel", "MySQL", "Tailwind CSS"],
     highlights: ["RBAC untuk 6 role", "Stok opname otomatis", "Cetak invoice"],
     link: "https://github.com/mseptiawan/inventaris",
     className: "md:col-span-1",
   },
   {
     title: "Sistem Insentif PT Changhong",
-    date: "Jan 2025 - Feb 2025",
+    date: "April 2025 - Juni 2025",
     description:
       "Sistem otomatisasi perhitungan insentif promotor sebagai pengganti proses Excel manual.",
     stack: ["Laravel", "PHP", "MySQL"],
@@ -48,7 +48,7 @@ const projectsData = [
   },
   {
     title: "Website BJB Rental Mobil",
-    date: "Nov 2025",
+    date: "November 2025",
     description:
       "Website company profile dan katalog kendaraan dengan informasi armada, peta lokasi, dan pemesanan melalui WhatsApp.",
     stack: ["React", "TypeScript", "Tailwind CSS", "Leaflet", "VPS"],
@@ -63,7 +63,7 @@ const projectsData = [
   },
   {
     title: "Reservasi Meja Kafe",
-    date: "Jul 2026",
+    date: "Juli 2026",
     description:
       "Sistem reservasi meja kafe berbasis web dengan fitur pengelolaan reservasi dan verifikasi pembayaran.",
     stack: ["Laravel", "PHP", "MySQL", "Docker"],

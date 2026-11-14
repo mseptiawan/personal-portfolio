@@ -11,9 +11,14 @@ export default function Hero() {
       <Container>
         <div className="relative mx-auto max-w-4xl text-center">
           {/* Location Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
-            <MapPin className="size-3.5 sm:size-4" aria-hidden="true" />
-            Palembang, Sumatera Selatan, Indonesia
+          <div className="mb-6 inline-flex items-start sm:items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest text-primary text-left">
+            <MapPin
+              className="size-3.5 sm:size-4 shrink-0 mt-0.5 sm:mt-0"
+              aria-hidden="true"
+            />
+            <span className="leading-snug break-words">
+              Palembang, Sumatera Selatan, Indonesia
+            </span>
           </div>
           {/* Name */}
           <h1 className="text-5xl font-black tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl">

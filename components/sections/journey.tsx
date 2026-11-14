@@ -4,7 +4,7 @@ import Container from "../layout/container";
 
 const experiences = [
   {
-    date: "Jan 2026 — Jul 2026",
+    date: "Januari 2026 — Juli 2026",
     title: "Web Developer | Academic Project",
     company: "PT Zafa Mulia Mandiri",
     desc: "Membangun sistem HRIS berbasis web (16 modul) dari nol hingga siap produksi. Merancang arsitektur database, membangun REST API, dan mengimplementasikan logika bisnis menggunakan Express dan MongoDB.",
@@ -12,7 +12,7 @@ const experiences = [
     type: "Experience",
   },
   {
-    date: "Mar 2025 — Aug 2025",
+    date: "April 2025 — Juni 2025",
     title: "Web Developer | Kerja Praktik",
     company: "Changhong - Palembang Branch",
     desc: "Merancang prototipe sistem perhitungan insentif promotor berbasis web sebagai pengganti proses manual Excel. Mengimplementasikan autentikasi, CRUD, dan perhitungan otomatis menggunakan Laravel.",
@@ -20,7 +20,7 @@ const experiences = [
     type: "Experience",
   },
   {
-    date: "Aug 2025",
+    date: "Agustus 2025",
     title: "Juara 1 UI/UX Competition",
     company: "Rafatech UIN Raden Fatah",
     desc: "Bertanggung jawab pada perancangan user flow dan low-fidelity wireframe dalam tim, serta mempresentasikan solusi desain di depan juri. Berhasil membawa tim meraih juara 1 UI/UX tingkat nasional dan menjadi finalis kategori Web Development",
