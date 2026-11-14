@@ -36,9 +36,21 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 );
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com/mseptiawan", icon: <GithubIcon className="size-4" /> },
-  { name: "LinkedIn", href: "https://linkedin.com/in/mseptiawan/", icon: <LinkedinIcon className="size-4" /> },
-  { name: "Email", href: "mailto:mseptiawan017@gmail.com", icon: <Mail className="size-4" /> },
+  {
+    name: "GitHub",
+    href: "https://github.com/mseptiawan",
+    icon: <GithubIcon className="size-4" />,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/mseptiawan/",
+    icon: <LinkedinIcon className="size-4" />,
+  },
+  {
+    name: "Email",
+    href: "mailto:mseptiawan017@gmail.com",
+    icon: <Mail className="size-4" />,
+  },
 ];
 
 const navLinks = [
@@ -52,37 +64,35 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-zinc-800 bg-black">
+    <footer className="border-t border-border bg-background">
       <Container>
         <div className="flex flex-col items-center justify-between gap-6 py-10 md:flex-row md:py-12">
-          
           {/* Kiri: Brand & Copyright */}
           <div className="flex flex-col items-center gap-2 md:items-start">
             <Link
               href="/"
-              className="text-lg font-bold tracking-tight text-white transition-colors hover:text-zinc-300"
+              className="text-lg font-bold tracking-tight text-foreground transition-colors hover:text-primary"
             >
               M. Septiawan
-              <span className="text-white">.</span>
+              <span className="text-primary">.</span>
             </Link>
-            <p className="text-center text-sm text-zinc-400 md:text-left">
-              Backend/Full-Stack Web Developer
+            <p className="text-center text-sm text-muted-foreground md:text-left">
+              Full-Stack Web Developer
             </p>
-            <p className="mt-2 text-xs text-zinc-600">
-              &copy; {currentYear} M. Septiawan. Hak cipta dilindungi.
+            <p className="mt-2 text-xs text-muted-foreground/70">
+              &copy; {currentYear}
             </p>
           </div>
 
           {/* Kanan: Navigasi & Sosial Media */}
           <div className="flex flex-col items-center gap-6 md:items-end">
-            
             {/* Navigasi Cepat */}
             <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:justify-end">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                 >
                   {link.name}
                 </a>
@@ -98,14 +108,13 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-zinc-400 transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-800 hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-muted text-muted-foreground transition-all duration-200 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground"
                 >
                   {social.icon}
                 </a>
               ))}
             </div>
           </div>
-
         </div>
       </Container>
     </footer>
